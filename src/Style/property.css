@@ -1,0 +1,239 @@
+
+.more span {
+    font-family: var(--ff-outfit);
+    font-size: 19px;
+    line-height: 35.91px;
+    font-weight: 500;
+    color: #181A20;
+}
+
+.show span {
+    font-family: var(--ff-outfit);
+    font-size: 19px;
+    line-height: 35.91px;
+    font-weight: 500;
+    color: #181A20;
+}
+
+.sort {
+    font-family: var(--ff-outfit);
+    font-size: 19px;
+    line-height: 35.35px;
+    font-weight: 500;
+    color: #717171;
+}
+
+.default {
+    line-height: 33px;
+    font-weight: 500;
+    color: #181A20;
+    margin-left: 4px;
+}
+
+.drops {
+    margin-left: 7px;
+}
+
+.outside-width{
+   max-width: 100%;
+}
+
+.inside-width {
+   /* border: 1px solid red; */
+   width: 31.5%;
+   border: 0.92px solid #DDD8D8;
+   border-radius: 10px;
+   margin-bottom: 2.4rem;
+}
+
+.property-img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.feature-btn {
+    width: 95px;
+    height: 35px;
+    border: none;
+    background-color: #3D9970;
+    border-radius: 2.89px;
+    outline: none;
+    font-family: var(--ff-outfit);
+    font-size: 13px;
+    line-height: 22.4px;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: absolute;
+    top: 5%;
+    left: 4%;
+
+
+}
+
+.sale-btn {
+    width: 90px;
+    height: 33px;
+    border: none;
+    background-color: #D3D3D3B2;
+    border-radius: 2.89px;
+    outline: none;
+    font-family: var(--ff-outfit);
+    font-size: 13px;
+    line-height: 22.4px;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: absolute;
+    top: 5%;
+    right: 4%;
+}
+
+.img-post {
+    position: absolute;
+    right: 4%;
+    bottom: 4%;
+}
+
+.icon-1 {
+    width: 39px;
+    height: 39px;
+    background-color: #878787B2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9.19px;
+}
+
+.title-proper {
+    font-family: var(--ff-outfit);
+    font-size: 19px;
+    line-height: 24.81px;
+    font-weight: 600;
+    color: #444444;
+}
+
+.location-proper span {
+    font-family: var(--ff-outfit);
+    font-size: 14.93px;
+    line-height: 29.87px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.location-proper {
+    margin-top: -6px;
+}
+
+.bed-proper span {
+    font-family: var(--ff-outfit);
+    font-size: 16px;
+    line-height: 19.53px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.bed-proper img {
+    width: 20.68px;
+    height: 20.68px;
+}
+
+.beddings {
+    padding-bottom: 24px;
+    border-bottom: 1.15px solid #E8E8E8;
+}
+
+.amount {
+    font-family: var(--ff-outfit);
+    font-size: 21px;
+    line-height: 27.72px;
+    font-weight: 600;
+    color: #373737;
+}
+
+.naira-logo {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 6px;
+}
+
+.numbers {
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+@media(max-width:767px) {
+    .show span {
+        display: none;
+    }
+
+    .sort {
+        font-size: 17px;
+    }
+
+    .more span {
+        font-size: 17px;
+    }
+
+    .inside-width {
+        width: 100%;
+    }
+
+    .feature-btn {
+        width: 90px;
+    }
+    
+    .sale-btn {
+        width: 80px;
+    }
+
+    .img-log{
+        width: 15px;
+        height: 15px;
+    }
+
+    .title-proper {
+        font-size: 17px;
+    }
+
+    .location-proper span {
+        font-size: 13px;
+    }
+
+    .location-proper {
+        margin-top: -7px;
+    }
+
+    .bed-proper span {
+        font-size: 15px;
+    }
+    
+    .amount {
+        font-size: 18px;
+    }
+} 
+
+
+@media (min-width:768px) and (max-width:991px) {
+    .inside-width {
+        width: 47%;
+    }
+
+   
+    .img-log{
+        width: 15px;
+        height: 15px;
+    }
+    
+    .title-proper {
+        font-size: 18px;
+    }
+
+    .location-proper span {
+        font-size: 14px;
+    }
+
+    .location-proper {
+        margin-top: -8px;
+    }
+
+}
