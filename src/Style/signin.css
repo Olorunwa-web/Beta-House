@@ -240,7 +240,13 @@ input[type="checkbox"]:checked::after {
     color: #3D9970;
 }
 
-
+.spans {
+    color: #EC5E5E;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 0px;
+    font-family: var(--ff-outfit);
+}
 
 @media(max-width:767px) {
     .signin-wrapper {
@@ -265,6 +271,7 @@ input[type="checkbox"]:checked::after {
     .sign-ups {
         margin: 40px 0;
         height: 100%;
+        height: auto;
     }
 
     .image-wrapper, .image-wrappers {

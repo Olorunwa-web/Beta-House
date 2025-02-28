@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../Layout/Navbar'
 import background from '../assets/Frame 9325 (1).jpg';
@@ -6,6 +6,19 @@ import '../Style/home.css'
 
 
 const Home = () => {
+    const [count, setCount] = useState(0);
+
+
+    const increase = () => {
+        setCount(count + 1);
+      };
+    
+      const decrease = () => {
+        if (count > 0) {
+          setCount(count - 1);
+        }
+      };
+
     return (
         <>
             <main className = 'position-relative'>
@@ -35,13 +48,13 @@ const Home = () => {
                                     <div className = ''>
                                        <h6 className = 'bed-span text-center'>BEDROOM</h6>
                                       <div className = 'd-flex gap-4 align-items-center'>
-                                         <div className  = 'plus d-flex align-items-center justify-content-center'>
+                                         <div className  = 'plus d-flex align-items-center justify-content-center' disabled={count === 0} onClick={decrease}>
                                             <span>-</span>
                                          </div>
                                          <div className = 'zero'>
-                                            <span>0</span>
+                                            <span>{count}</span>
                                           </div>
-                                          <div className = 'plus d-flex align-items-center justify-content-center'>
+                                          <div className = 'plus d-flex align-items-center justify-content-center' onClick={increase}>
                                             <span>+</span>
                                           </div>
                                       </div>

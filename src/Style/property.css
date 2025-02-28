@@ -161,6 +161,30 @@
 
 }
 
+.number span {
+    font-family: var(--ff-outfit);
+    font-size: 21px;
+    line-height: 31.7px;
+    font-weight: 500;
+}
+
+.number.selected {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3D9970;
+    border-radius: 3px;
+    color: #FFFFFF;
+}
+
+.inc {
+    width: 14px;
+    height: 14px;
+    margin-top: 4px;
+}
+
 @media(max-width:767px) {
     .show span {
         display: none;
@@ -209,6 +233,15 @@
     
     .amount {
         font-size: 18px;
+    }
+
+    .number.selected {
+        width: 25px;
+        height: 25px;
+    }
+
+    .number span {
+        font-size: 17px;
     }
 } 
 

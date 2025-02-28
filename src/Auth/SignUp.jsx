@@ -4,11 +4,31 @@ import or from '../assets/Frame 115.svg'
 import googleIcon from '../assets/🦆 icon _google_.svg'
 import '../Style/signin.css'
 import { Link } from 'react-router-dom'
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { signupSchema } from '../Lib/SchemaValidation';
+import { useNavigate } from 'react-router-dom'
 
 
 
 const SignUp = () => {
+
+
+    const navigate  = useNavigate();
+
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+      } = useForm({
+        resolver: yupResolver(signupSchema),
+      })
+      const onSubmit = (data) => {
+          console.log("data:",data)
+          navigate("/")
+        }
+
     return (
         <>
         
@@ -17,29 +37,34 @@ const SignUp = () => {
                      <div className = 'insider-widths'>
                          <h3 className = 'welcome-h3-tags'>Join our community of home seekers and explore the possibilities that await</h3>
                          <p className = 'welcome-p-tags'>Lets get started by filling out the information below</p>
-                         <form action="" className = 'mt-2 mat-space' >
+                         <form action="" className = 'mt-2 mat-space' onSubmit={handleSubmit(onSubmit)}>
                              <div>
                                  <div className = 'd-flex flex-space gap-2 justify-content-between mb-2'>
                                      <div>
                                          <label htmlFor="" className = 'label-input'>First Name</label>
-                                         <input type="text" placeholder = 'Enter Name' className = 'input-group'/>
+                                         <input type="text" placeholder = 'Enter Name' className = 'input-group' {...register("firstName")}/>
+                                         <span className = 'spans'>{errors.firstName?.message}</span>
                                      </div>
                                      <div>
                                          <label htmlFor="" className = 'label-input'>Last Name</label>
-                                         <input type="text" placeholder = 'Enter Name' className = 'input-group'/>
+                                         <input type="text" placeholder = 'Enter Name' className = 'input-group'{...register("lastName")} />
+                                         <span className = 'spans'>{errors.lastName?.message}</span>
                                      </div>
                                  </div>
                                  <div className = 'mb-2 flex-space'>
                                      <label htmlFor="" className = 'label-input'>Email</label>
-                                     <input type="email" name=""  placeholder = 'Enter your Email' className = 'w-100 input-group'/>
+                                     <input type="email" name=""  placeholder = 'Enter your Email' className = 'w-100 input-group' {...register("email")}/>
+                                     <span className = 'spans'>{errors.email?.message}</span>
                                  </div>
                                  <div className = 'mb-2 flex-space'>
                                      <label htmlFor="" className = 'label-input'>Password</label>
-                                     <input type="password" name=""  placeholder = 'Enter your password' className = 'w-100 input-group'/>
+                                     <input type="password" name=""  placeholder = 'Enter your password' className = 'w-100 input-group' {...register("password")}/>
+                                     <span className = 'spans'>{errors.password?.message}</span>
                                  </div>
                                  <div>
                                      <label htmlFor="" className = 'label-input'>Confirm Password</label>
-                                     <input type="password" name=""  placeholder = 'Enter your password' className = 'w-100 input-group'/>
+                                     <input type="password" name=""  placeholder = 'Enter your password' className = 'w-100 input-group' {...register("confirmPassword")}/>
+                                     <span className = 'spans'>{errors.confirmPassword?.message}</span>
                                  </div>
                                  
                                  <div className = 'd-flex gap-3 align-items-center mt-3'>
@@ -49,7 +74,7 @@ const SignUp = () => {
                                      <span className = 'agree'>I agree to <span className ='terms'>Terms of Service </span>and<span className = 'terms'> Privacy Policies</span></span>
                                  </div>
                                  <div className = 'mt-4 d-flex flex-column gap-1'>
-                                     <button className = 'w-100 signup-btn'>Sign Up</button>
+                                     <button className = 'w-100 signup-btn' type = 'submit' disabled = {isSubmitting}>Sign Up</button>
                                      <div className = 'text-center '>
                                          <img src={or} alt="" className = ' or'/>
                                      </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import more from '../assets/Icon.svg';
 import drops from '../assets/Vector (2).svg';
 import { properties } from '../data'
@@ -9,6 +9,25 @@ import right from '../assets/Vector (9).svg'
 
 
 const Property = () => {
+
+
+    const [selected, setSelected] = useState(1); 
+
+
+
+    const numbers = [1, 2, 3, 4];
+    
+
+    const handleNext = () => {
+        setSelected((prev) => (prev < 4 ? prev + 1 : prev));
+      };
+    
+      // Handle Previous button
+      const handlePrev = () => {
+        setSelected((prev) => (prev > 1 ? prev - 1 : prev));
+      };
+
+
     return (
         <>
             <main className = ''>  
@@ -93,25 +112,18 @@ const Property = () => {
                              })}
                          </section>
                      </section>
-                     <section className = 'd-flex  justify-content-center align-items-center'>
-                         <div className = 'd-flex gap-3'>
-                             <div className = ''>
-                                 <img src= {left} alt=""/>
+                     <section className = 'd-flex justify-content-center align-items-center mt-2 mb-4'>
+                         <div className = 'd-flex gap-4'>
+                             <div className = '' onClick={handlePrev} >
+                                 <img src= {left} alt="" className = 'inc'/>
                              </div>
-                             <div>
-                                 <span>1</span>
-                             </div>
-                             <div>
-                                 <span>2</span>
-                             </div>
-                             <div>
-                                 <span>3</span>
-                             </div>
-                             <div>
-                                 <span>4</span>
-                             </div>
-                             <div>
-                                 <img src= {right} alt=""/>
+                               {numbers.map((num)=>(
+                                 <div key = {num}  onClick={() => setSelected(num)}  className={`number ${selected === num ? "selected" : ""}`} >
+                                     <span>{num}</span>
+                                 </div>
+                                ))}
+                             <div onClick={handleNext} >
+                                 <img src= {right} alt="" className = 'inc'/>
                              </div>
                          </div>
                      </section>

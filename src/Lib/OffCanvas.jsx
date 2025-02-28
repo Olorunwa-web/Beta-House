@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import menuIcon from '../assets/menu_35dp_000000_FILL0_wght400_GRAD0_opsz40.svg'
 import profileImages from '../assets/Ellipse 8.svg'
+import {Link} from 'react-router-dom'
 
 
 const OffCanvas = ({ name, ...props }) => {
@@ -38,7 +39,7 @@ const OffCanvas = ({ name, ...props }) => {
                                 </section>
                              </section>
                               <section>
-                                  <button className = 'log-out-btn w-100'>Log out</button>
+                                  <Link to = '/'><button className = 'log-out-btn w-100'>Log out</button></Link>
                               </section>
                            </section>
                    </Offcanvas.Body>

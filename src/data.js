@@ -8,7 +8,11 @@ import image6 from './assets/b-11.jpg (6).jpg';
 import image7 from './assets/b-11.jpg (7).jpg';
 import image8 from './assets/b-11.jpg (8).jpg';
 import image9 from './assets/b-11.jpg (9).jpg';
-
+// ========================================================
+import image10 from './assets/Link (4).jpg'
+import image11 from './assets/Link (2).jpg';
+import image12 from './assets/Link (3).jpg'
+import iconimg from './assets/Vector (12).svg'
 // ========================================================
 import Icon1 from './assets/Icon (2).svg';
 import video from './assets/Vector (3).svg';
@@ -195,4 +199,71 @@ export const properties = [
         Share: share,
         Link: link,
     }
+]
+
+
+
+
+export const house = [
+    {
+        id: 1,
+        house: "Semi Detached Duplex",
+        img: image10,
+        amount: "1,4300,000,000",
+        beds: "6 Bed",
+        bath: "3 Bath",
+        size:"720 sqft",
+        iconic: iconimg,
+        location: "Victoria Island, Lagos"
+
+    },
+    {
+        id: 2,
+        house: "Special Duplex",
+        img: image10,
+        amount: "670,000,000",
+        beds: "7 Bed",
+        bath: "4 Bath",
+        size:"820 sqft",
+        iconic: iconimg,
+        location: "Victoria Island, Lagos"
+
+    },
+    {
+        id: 3,
+        house: "Split-level House",
+        img: image10,
+        amount: "340,000,000",
+        beds: "4 Bed",
+        bath: "3 Bath",
+        size:"620 sqft",
+        iconic: iconimg,
+        location: "Lekki-Ajah, Lagos"
+
+    },
+    {
+        id: 4,
+        house: "Twin Duplex",
+        img: image10,
+        amount: "290,000,000",
+        beds: "5 Bed",
+        bath: "2 Bath",
+        size:"920 sqft",
+        iconic: iconimg,
+        location: "Banana Island, Lagos"
+
+    },
+    // {
+    //     id: 5,
+    //     house: "Semi Detached Duplex",
+    //     img: image10,
+    //     amount: "900,000,000",
+    //     beds: "6",
+    //     bath: "3",
+    //     size:"720 sqft",
+    //     iconic: iconimg,
+    //     location: "Ikeja, Lagos"
+
+    // }
+
 ]

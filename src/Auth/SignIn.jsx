@@ -1,12 +1,32 @@
-import React from 'react'
+import React , { useState } from 'react'
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
 import image1 from '../assets/13625 1.jpg';
 import or from '../assets/Frame 115.svg'
 import googleIcon from '../assets/🦆 icon _google_.svg'
 import '../Style/signin.css'
 import { Link } from 'react-router-dom'
+import { signinSchema } from '../Lib/SchemaValidation';
+import { useNavigate } from 'react-router-dom'
 
 
 const SignIn = () => {
+
+    const navigate  = useNavigate();
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting  },
+      } = useForm({
+        resolver: yupResolver(signinSchema),
+      })
+      const onSubmit = (data) => {
+          console.log('Form data:', data);
+          navigate("/dashboard")
+        } 
+
+
     return (
         <>
             <main className = 'd-md-flex align-items-cente justify-content-between flex-content  '>
@@ -14,15 +34,17 @@ const SignIn = () => {
                      <div className ='insider-width'>
                          <h3 className = 'welcome-h3-tag'>Welcome Back to BetaHouse!</h3>
                          <p className = 'welcome-p-tag'>Lets get started by filling out the information below</p>
-                         <form action="" className = '' >
+                         <form action="" className = '' onSubmit={handleSubmit(onSubmit)} >
                              <div>
                                  <div className = 'mb-3'>
                                      <label htmlFor="" className = 'label-input'>Email</label>
-                                     <input type="email" name=""  placeholder = 'Enter your Email' className = 'w-100 input-group'/>
+                                     <input type="email" name=""  placeholder = 'Enter your Email' className = 'w-100 input-group' {...register("email")}/>
+                                     <span className = 'spans'>{errors.email?.message}</span>
                                  </div>
                                  <div>
                                      <label htmlFor="" className = 'label-input'>Password</label>
-                                     <input type="password" name=""  placeholder = 'Enter your password' className = 'w-100 input-group'/>
+                                     <input type="password" name=""  placeholder = 'Enter your password' className = 'w-100 input-group' {...register("password")}/>
+                                     <span className = 'spans'>{errors.password?.message}</span>
                                  </div>
                                  <div className = 'd-flex justify-content-between mt-2 pt-1'>
                                      <div className = 'd-flex gap-2 align-items-center'>
@@ -34,7 +56,7 @@ const SignIn = () => {
                                      </div>
                                  </div>
                                  <div className = 'mt-4 d-flex flex-column gap-2'>
-                                     <Link to = '/dashboard' className = 'w-100 signup-btn'><button className = 'w-100 signup-btn'>Sign In</button></Link>
+                                     <button className = 'w-100 signup-btn' type = 'submit' disabled = {isSubmitting} >Sign In</button>
                                      <div className = 'text-center '>
                                          <img src={or} alt="" className = ' or'/>
                                      </div>
