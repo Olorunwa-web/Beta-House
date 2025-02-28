@@ -33,7 +33,7 @@ const Navbar = () => {
                          <h6 className = 'aisha'>Aisha Cucurella</h6>
                          <img src= {dropdown} alt="" className = 'aisha-drop'/>
                     </section>
-                    <section className = 'd-md-none d-flex'>
+                    <section className = 'd-md-none d-flex harm'>
                        {['end'].map((placement, idx) => (
                            <Offcanvas key={idx} placement={placement} name={placement} />
                           ))}
