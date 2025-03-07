@@ -259,6 +259,26 @@
     padding: 20px;
 }
 
+.log-btn-position {
+    position: absolute;
+    top: 100%;
+    right: -10px;
+    
+}
+
+.log-out {
+   width: 100%;
+   height: 32px;
+   border: none;
+   color: #FFFFFF;
+   background-color: #EC5E5E;
+   font-family: var(--ff-outfit);
+   font-size: 14px;
+   line-height: 10px;
+   font-weight: 400;
+   border-radius: 7px;
+}
+
 @media(max-width:767px) {
 
     .background-img {

@@ -8,11 +8,13 @@ import '../Style/signin.css'
 import { Link } from 'react-router-dom'
 import { signinSchema } from '../Lib/SchemaValidation';
 import { useNavigate } from 'react-router-dom'
-
+import { toast } from 'react-hot-toast'
 
 const SignIn = () => {
 
     const navigate  = useNavigate();
+    const [loading, setLoading] = useState(null)
+
 
     const {
         register,
@@ -21,10 +23,42 @@ const SignIn = () => {
       } = useForm({
         resolver: yupResolver(signinSchema),
       })
-      const onSubmit = (data) => {
-          console.log('Form data:', data);
-          navigate("/dashboard")
-        } 
+   
+
+
+    const onSubmit = async (data) => {
+        setLoading (true)
+      try {
+         
+          const res = await fetch ('https://backend-test-3-ztql.onrender.com/api/auth/signin', {
+              method: 'POST',
+              headers:{
+                  "Content-Type":"application/json"
+              },
+              body: JSON.stringify(data),          
+         })
+
+         const result = await res.json();
+         console.log(result);
+
+
+         if (result.status === "success") {
+            localStorage.setItem(
+                       'user_data',
+                       result?.user?.fullName,
+
+                   );
+             toast.success(result.message)
+            navigate("/dashboard")
+         } 
+      } catch (error) {
+          toast.error('something went wrong')
+          console.error(error);
+      } finally {
+          setLoading(false)
+      }
+
+      }
 
 
     return (

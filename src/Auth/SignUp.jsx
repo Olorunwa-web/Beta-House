@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState }from 'react'
 import image2 from '../assets/Frame 1000002379.jpg';
 import or from '../assets/Frame 115.svg'
 import googleIcon from '../assets/🦆 icon _google_.svg'
@@ -8,13 +8,19 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signupSchema } from '../Lib/SchemaValidation';
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-hot-toast'
+import { useAuth } from '../contexts/AuthContext'
 
 
 
-const SignUp = () => {
+const SignUp =  () => {
 
 
     const navigate  = useNavigate();
+
+    const {login} = useAuth()
+    // const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(null)
 
 
     const {
@@ -24,14 +30,40 @@ const SignUp = () => {
       } = useForm({
         resolver: yupResolver(signupSchema),
       })
-      const onSubmit = (data) => {
-          console.log("data:",data)
-          navigate("/")
+
+
+      const onSubmit = async (data) => {
+          setLoading (true)
+        try {
+            // setError(null)
+            // setLoading(false)
+            const res = await fetch ('https://backend-test-3-ztql.onrender.com/api/auth/signup', {
+                method: 'POST',
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify(data),          
+           })
+
+           const result = await res.json();
+           console.log(result);
+
+
+           if (result.status === "success") {
+               toast.success(result.message)
+              navigate("/")
+           } 
+        } catch (error) {
+            toast.error('something went wrong')
+            console.error(error);
+        } finally {
+            setLoading(false)
+        }
+
         }
 
     return (
         <>
-        
             <main className = 'd-md-flex align-items-cente justify-content-between sign-ups flex-content '>
                 <section className = 'signin-wrappers d-flex justify-content-center align-items-center'>
                      <div className = 'insider-widths'>
@@ -74,7 +106,7 @@ const SignUp = () => {
                                      <span className = 'agree'>I agree to <span className ='terms'>Terms of Service </span>and<span className = 'terms'> Privacy Policies</span></span>
                                  </div>
                                  <div className = 'mt-4 d-flex flex-column gap-1'>
-                                     <button className = 'w-100 signup-btn' type = 'submit' disabled = {isSubmitting}>Sign Up</button>
+                                         <button className = 'w-100 signup-btn' type = 'submit' disabled = {isSubmitting}>{loading ? "Signing up..." : "Sign up"}</button>
                                      <div className = 'text-center '>
                                          <img src={or} alt="" className = ' or'/>
                                      </div>
