@@ -6,7 +6,9 @@ import discoverright from '../assets/ (2).svg'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, FreeMode } from "swiper/modules";
+import "swiper/css/navigation";
 
 
 const Discover = () => {
@@ -19,6 +21,7 @@ const Discover = () => {
         speed: 500, 
         slidesToShow: 4,
         slidesToScroll: 1, 
+
         responsive: [
           {
             breakpoint: 1024, 
@@ -50,15 +53,16 @@ const Discover = () => {
                     <h1 className = 'text-center py-4 g'>Discover Our Popular Properties</h1>
                     <section className = 'py-4 position-relative slider-contain'>
                         <div className = 'div-outside'>
-                            <Slider ref={sliderRef} {...settings}  >
+      
+                            <Slider ref={sliderRef} {...settings} className = 'house ' >
                             {house.map((pro)=> {
                                 const {id, img, house, amount,beds, bath, size, iconic, location} = pro
                                 return (
-                                    <section key = {id}  className='div-inside  omo-flex'>
-                                        <div className = 'omo-fle ' >
-                                        <div className = 'divss '>
+                                    <div key = {id}  className='div-inside  omo-flex'>
+                                        <div className = 'omo-fle' >
+                                          <div className = 'divss'>
                                             <img src= {img} alt="" className = 'div-img'/>
-                                        </div>
+                                          </div>
                                         <div className = 'div-flex'>
                                                 <h5 className = 'house-div'>{house}</h5>
                                                <h6 className = 'amount-div'>{amount}</h6>
@@ -81,17 +85,18 @@ const Discover = () => {
                                                </div>
                                         </div>
                                         </div>
-                                    </section>
+                                    </div>
                                 )
                             })}
 
                             </Slider>
+                
                         </div>
                             <div>
-                                <div className = 'd-flex justify-content-center align-items-center discover-left position-absolute top-50 start-0 translate-middle' onClick={() => sliderRef.current.slickPrev()} >
+                                <div className = 'd-flex justify-content-center align-items-center discover-left ' onClick={() => sliderRef.current.slickPrev()} >
                                     <img src= {disoverleft} alt="" className = 'dis'/>
                                 </div>
-                                <div className = 'd-flex justify-content-center align-items-center discover-right position-absolute top-50 start-100 translate-middle'onClick={() => sliderRef.current.slickNext()} >
+                                <div className = 'd-flex justify-content-center align-items-center discover-right 'onClick={() => sliderRef.current.slickNext()} >
                                     <img src= {discoverright} alt="" className = 'dis'/>
                                 </div>
                             </div>

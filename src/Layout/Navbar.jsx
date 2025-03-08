@@ -34,7 +34,7 @@ const storedData = localStorage.getItem('user_data') || '';
                           <h4 className = 'beta-nav'>BetaHouse</h4>
                        </div>
                     </section>
-                    <section className = 'd-none d-md-flex home'>
+                    <section className = 'd-none d-lg-flex home'>
                          <p>Home</p>
                          <p>Properties</p>
                          <p>About Us</p>
@@ -53,7 +53,7 @@ const storedData = localStorage.getItem('user_data') || '';
                             )}
                          </div>
                     </section>
-                    <section className = 'd-md-none d-flex harm'>
+                    <section className = 'd-lg-none d-flex harm'>
                        {['end'].map((placement, idx) => (
                            <Offcanvas key={idx} placement={placement} name={placement} />
                           ))}
